@@ -1,6 +1,14 @@
 const { performance } = require("perf_hooks");
 
 function addUpTo(num) {
+	// first solution => O(n)
+	// let sum = 0;
+	// for (let i = 0; i <= num; i++) {
+	// 	sum += i;
+	// }
+	// return sum;
+
+	// second solution => O(1)
 	return (num * (num + 1)) / 2;
 }
 
