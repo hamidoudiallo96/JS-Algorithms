@@ -12,14 +12,26 @@ function isAnagram(string1, string2) {
 	// make str1 and str2 the same casing
 	let str1 = string1.toLowerCase();
 	let str2 = string2.toLowerCase();
-	// loop over string1
-	for (let char in str1) {
-		// intialize var to the index of char in str2
-		indexOfChar = str2.indexOf(str1[char]);
-		// return false if char does not exist in str2
-		if (indexOfChar === -1) return false;
-		// remove first index of str2
-		str2.slice(indexOfChar, indexOfChar + 1);
+
+	let strObj1 = {};
+	let strObj2 = {};
+
+	for (let char of str1) {
+		strObj1[char] = (strObj1[char] || 0) + 1;
+	}
+
+	for (let char of str2) {
+		strObj2[char] = (strObj2[char] || 0) + 1;
+	}
+
+	for (let key in strObj1) {
+		if (!(key in strObj2)) {
+			return false;
+		}
+
+		if (strObj2[key] !== strObj1[key]) {
+			return false;
+		}
 	}
 
 	// return true if loop is complete
