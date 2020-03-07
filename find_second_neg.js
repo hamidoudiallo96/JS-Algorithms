@@ -16,7 +16,6 @@ const findSecondLastNeg = arr => {
 			negSet.add(num);
 		}
 	}
-
 	for (let num of negSet.values()) {
 		arrNum.push(num);
 	}
@@ -27,3 +26,4 @@ const findSecondLastNeg = arr => {
 
 // test cases
 console.log(findSecondLastNeg([4, -4, 2, 10, -16]));
+console.log(findSecondLastNeg([9, 2, -8, 10, -9, -3]));
